@@ -18,9 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText nom, eKoma;
     private TextView kalimat, nhasil;
     private Button btDPP, btPPN, btPPh21,btPPh22,btPPh23,btPResto;
-    int angka;
     int naik = 2;
-    double fnal,dpp,temp,ppn,pph21,pph22,pph23,presto;
+    double angka,dpp,ppn,pph21,pph22,pph23,presto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +40,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 angka = Integer.parseInt(nom.getText().toString());
                 dpp = angka * 100 / 110;
-//                DecimalFormat twoDForm = new DecimalFormat("#.#");
-//                fnal = Double.parseDouble(twoDForm.format(dpp));
-//                BigDecimal bd = new BigDecimal(dpp);
-//                bd = bd.setScale(naik,BigDecimal.ROUND_UP);
-//                fnal = bd.doubleValue();
-                fnal = Math.round(dpp);
-                String coba = NumberFormat.getNumberInstance(Locale.US).format(fnal);
+                DecimalFormat df = new DecimalFormat("#,###,###");
                 kalimat.setText("Nilai Dasar Pengenaan Pajak yang harus dibayar :");
-                nhasil.setText(""+coba);
+                nhasil.setText(""+df.format(dpp));
             }
         });
 
@@ -59,10 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 angka = Integer.parseInt(nom.getText().toString());
                 dpp = angka * 100 / 110;
                 ppn = dpp * 10 / 100;
-                fnal = Math.round(ppn);
-                String coba = NumberFormat.getNumberInstance(Locale.US).format(fnal);
+                DecimalFormat df = new DecimalFormat("#,###,###");
                 kalimat.setText("Nilai Pajak Pertambahan Nilai yang harus dibayar :");
-                nhasil.setText(""+coba);
+                nhasil.setText(""+df.format(ppn));
             }
         });
 
@@ -80,10 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 dpp = angka * 100 / 110;
                 ppn = dpp * 10 / 100;
                 pph22 = ppn * 15 / 100;
-                fnal = Math.round(pph22);
-                String coba = NumberFormat.getNumberInstance(Locale.US).format(fnal);
+                DecimalFormat df = new DecimalFormat("#,###,###");
                 kalimat.setText("Nilai Pajak Penghasilan Pasal 22 yang harus dibayar :");
-                nhasil.setText(""+coba);
+                nhasil.setText(""+df.format(pph22);
             }
         });
 
@@ -92,10 +83,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 angka = Integer.parseInt(nom.getText().toString());
                 pph23 = angka * 2 / 100;
-                fnal = Math.round(pph23);
-                String coba = NumberFormat.getNumberInstance(Locale.US).format(fnal);
+                DecimalFormat df = new DecimalFormat("#,###,###");
                 kalimat.setText("Nilai Pajak Penghasilan Pasal 23 yang harus dibayar :");
-                nhasil.setText(""+coba);
+                nhasil.setText(""+df.format(pph23));
             }
         });
     }
