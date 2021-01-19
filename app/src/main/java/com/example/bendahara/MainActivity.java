@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 pph22 = ppn * 15 / 100;
                 DecimalFormat df = new DecimalFormat("#,###,###");
                 kalimat.setText("Nilai Pajak Penghasilan Pasal 22 yang harus dibayar :");
-                nhasil.setText(""+df.format(pph22);
+                nhasil.setText(""+df.format(pph22));
             }
         });
 
